@@ -3,6 +3,7 @@ package simple_logger
 import (
 	"fmt"
 	"io"
+	"os"
 	"time"
 )
 
@@ -45,4 +46,9 @@ func (l *Logger) Warning(message string) {
 
 func (l *Logger) Error(message string) {
 	l.log("ERROR", message)
+}
+
+func (l *Logger) Fatal(message string) {
+	l.log("FATAL", message)
+	os.Exit(1)
 }
